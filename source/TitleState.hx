@@ -715,3 +715,4 @@ class TitleState extends MusicBeatState
 		}
 	}
 }
+
