@@ -2479,8 +2479,8 @@ class FunkinLua {
 	}*/
 
 	function getErrorMessage() {
-		var v:String = Lua.tostring(lua, -1);
-		Lua.pop(lua, 1);
+		
+		
 		return v;
 	}
 
