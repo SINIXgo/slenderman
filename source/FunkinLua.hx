@@ -2579,8 +2579,8 @@ class FunkinLua {
 	#end
 
 	public function stop() {
-		#if LUA_ALLOWED
-		if(lua == null) {
+		
+		
 			return;
 		}
 
