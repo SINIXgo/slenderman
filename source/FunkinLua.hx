@@ -2481,7 +2481,7 @@ class FunkinLua {
 	function getErrorMessage() {
 		
 		
-		return v;
+		
 	}
 
 	public function call(func:String, args:Array<Dynamic>): Dynamic{
