@@ -102,16 +102,3 @@ class Main extends Sprite
         }
     }
 }
-#if mobile
-
-var justTouched:Bool = false;
-
-for (touch in F
-
-	if (touch.justPressed)		justTouched = true;
-
-if (justTouched)
-
-	//Your code
-
-#end
