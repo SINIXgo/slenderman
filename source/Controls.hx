@@ -1127,3 +1127,86 @@ class Controls extends FlxActionSet
 		return input.device == GAMEPAD && (deviceID == FlxInputDeviceID.ALL || input.deviceID == deviceID);
 	}
 }
+	#if !mobile	public function bindKeys(control:Control, keys:Array<FlxKey>)
+
+	{
+
+		var copyKeys:Array<FlxKey> = keys.copy();
+
+		for (i in 0...copyKeys.length)
+
+			if(i == NONE)
+
+				copyKeys.remove(i);
+
+		#if (haxe >= "4.0.0")
+
+		inline forEachBound(control, (action, state) -> addKeys(action, copyKeys, state));
+
+		#else
+
+		forEachBound(control, function(action, state) addKeys(action, copyKeys, state));
+
+		#end
+
+	}
+
+	public function unbindKeys(control:Control, keys:Array<FlxKey>)
+
+	{
+
+		var copyKeys:Array<FlxKey> = keys.copy();
+
+		for (i in 0...copyKeys.length)
+
+			if(i == NONE)
+
+				copyKeys.remove(i);
+
+		#if (haxe >= "4.0.0")
+
+		inline forEachBound(control, (action, _) -> removeKeys(action, copyKeys));
+
+		#else
+
+		forEachBound(control, function(action, _) removeKeys(action, copyKeys));
+
+		#end
+
+	}
+
+	#else
+
+	public function bindKeys(control:Control, keys:Array<FlxKey>)
+
+	{
+
+		#if (haxe >= "4.0.0")
+
+		inline forEachBound(control, (action, state) -> addKeys(action, keys, state));
+
+		#else
+
+		forEachBound(control, function(action, state) addKeys(action, keys, state));
+
+		#end
+
+	}
+
+	public function unbindKeys(control:Control, keys:Array<FlxKey>)
+
+	{
+
+		#if (haxe >= "4.0.0")
+
+		inline forEachBound(control, (action, _) -> removeKeys(action, keys));
+
+		#else
+
+		forEachBound(control, function(action, _) removeKeys(action, keys));
+
+		#end
+
+	}	
+
+	#end
