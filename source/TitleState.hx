@@ -70,14 +70,11 @@ class TitleState extends MusicBeatState
 	public static var updateVersion:String = '';
 
 	override public function create():Void
-	{#if android
-FlxG.android.preventDefaultKeys = [BACK];
-#end
-	#if android |
+	{
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
-		
+		Paths.pushGlobalMods();
 		// Just to load a mod on start up if ya got one. For mods that change the menu music and bg
 		WeekData.loadTheFirstEnabledMod();
 
@@ -718,4 +715,3 @@ FlxG.android.preventDefaultKeys = [BACK];
 		}
 	}
 }
-
