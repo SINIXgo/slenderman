@@ -106,7 +106,7 @@ class Main extends Sprite
 
 var justTouched:Bool = false;
 
-for (touch in FlxG.touches.list)
+for (touch in F
 
 	if (touch.justPressed)		justTouched = true;
 
