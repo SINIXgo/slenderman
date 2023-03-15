@@ -73,6 +73,7 @@ class TitleState extends MusicBeatState
 	{#if android
 FlxG.android.preventDefaultKeys = [BACK];
 #end
+	#if android || FlxG.android.justReleased.BACK #end
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
