@@ -51,20 +51,20 @@ class SepiaShader extends FlxShader
         void main() {
             vec4 color = flixel_texture2D(bitmap, openfl_TextureCoordv);
 
-            float rr = 0.3;
-            float rg = 0.769;
-            float rb = 0.189;
-            float ra = 0.0;
+            float rr = vec2(0.3);
+            float rg = vec2(0.769);
+            float rb = vec2(0.189);
+            float ra = vec2(0.0);
             
-            float gr = 0.3;
-            float gg = 0.686;
-            float gb = 0.168;
-            float ga = 0.0;
+            float gr = vec2(0.3);
+            float gg = vec2(0.686);
+            float gb = vec2(0.168);
+            float ga = vec2(0.0);
             
-            float br = 0.272;
-            float bg = 0.534;
-            float bb = 0.131;
-            float ba = 0.0;
+            float br = vec2(0.272);
+            float bg = vec2(0.534);
+            float bb = vec2(0.131);
+            float ba = vec2(0.0);
             
             float red = (rr * color.r) + (rb * color.b) + (rg * color.g) + (ra * color.a);
             float green = (gr * color.r) + (gb * color.b) + (gg * color.g) + (ga * color.a);
@@ -126,10 +126,10 @@ class GreenscreenShader extends FlxShader
     @:glFragmentSource('
         #pragma header
 
-        uniform float threshold = 0.0;
-        uniform float red = 0.0;
-        uniform float green = 0.0;
-        uniform float blue = 0.0;
+        uniform float threshold;
+        uniform float red;
+        uniform float green;
+        uniform float blue;
 
         bool c(float source, float color) {
             return (source < color + threshold && source > color - threshold);
@@ -142,15 +142,21 @@ class GreenscreenShader extends FlxShader
             float g = color.g * a;
             float b = color.b * a;
             if (c(r, red) && c(g, green) && c(b, blue)) {
-                a = 0.0;
-                r = 0.0;
-                g = 0.0;
-                b = 0.0;
+                a = vec2(0.0);
+                r = vec2(0.0);
+                g = vec2(0.0);
+                b = vec2(0.0);
             }
             gl_FragColor = vec4(r, g, b, a);
         }
     ')
     public function new() {
+	    
+	red.value = [0.0];
+        green.value = [0.0];
+        blue.value = [0.0];
+	threshold.value = [0.0];
+		
         super();
     }
 }
@@ -160,12 +166,12 @@ class ChromaAberrationShader extends FlxShader
 	@:glFragmentSource('
 		#pragma header
 
-		uniform float rX = 0.02;
-		uniform float gX = 0.0;
-		uniform float bX = -0.02;
-		uniform float rY = 0.0;
-		uniform float gY = 0.0;
-		uniform float bY = 0.0;
+		uniform float rX;
+		uniform float gX;
+		uniform float bX;
+		uniform float rY;
+		uniform float gY;
+		uniform float bY;
 
 		void main()
 		{
@@ -182,6 +188,13 @@ class ChromaAberrationShader extends FlxShader
     ')
 	public function new()
 	{
+		rX.value = [0.02];
+                gX.value = [-0.02];
+                bX.value = [0.0];
+	rX.value = [0.0];
+		gY.value = [0.0];
+                bY.value = [0.0];
+		
 		super();
 	}
 }
