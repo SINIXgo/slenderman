@@ -81,7 +81,7 @@ class StageData {
 		}
 		#else
 		if(Assets.exists(path)
-			rawJson = Assets.getText(path);
+			
 		}
 		#end
 		else
