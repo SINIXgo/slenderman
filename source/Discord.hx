@@ -17,7 +17,7 @@ class DiscordClient
 	{
 		trace("Discord Client starting...");
 		
-			clientID: "994990289884303490",
+			
 			onReady: onReady,
 			onError: onError,
 			onDisconnected: onDisconnected
