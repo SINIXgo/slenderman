@@ -80,7 +80,7 @@ class StageData {
 			rawJson = File.getContent(path);
 		}
 		#else
-		if(Assets.exists(path)) {
+		if(Assets.exists(path)
 			rawJson = Assets.getText(path);
 		}
 		#end
