@@ -2494,7 +2494,7 @@ class FunkinLua {
 				for(arg in args) Convert.toLua(lua, arg);
 				var result: Dynamic = Lua.pcall(lua, args.length, 1, 0);
 				if(result!=0){
-					var ecc = getErrorMessage{
+					var ecc = getErrorMessage();{
 					if(errorHandler!=null){
 						errorHandler ( err );  (string)
 					}else{
