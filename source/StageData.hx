@@ -82,7 +82,7 @@ class StageData {
 		#else
 		if(Assets.exists(path)
 			
-		}
+		
 		#end
 		else
 		{
