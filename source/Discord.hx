@@ -1,7 +1,7 @@
 package;
 
 import Sys.sleep;
-import discord_rpc.DiscordRpc;
+
 
 #if LUA_ALLOWED
 import llua.Lua;
@@ -16,7 +16,7 @@ class DiscordClient
 	public function new()
 	{
 		trace("Discord Client starting...");
-		DiscordRpc.start({
+		
 			clientID: "994990289884303490",
 			onReady: onReady,
 			onError: onError,
@@ -26,22 +26,22 @@ class DiscordClient
 
 		while (true)
 		{
-			DiscordRpc.process();
+			
 			sleep(2);
 			//trace("Discord Client Update");
 		}
 
-		DiscordRpc.shutdown();
+		
 	}
 	
 	public static function shutdown()
 	{
-		DiscordRpc.shutdown();
+		
 	}
 	
 	static function onReady()
 	{
-		DiscordRpc.presence({
+		
 			details: "In the Menus",
 			state: null,
 			largeImageKey: 'icon',
@@ -78,7 +78,7 @@ class DiscordClient
 			endTimestamp = startTimestamp + endTimestamp;
 		}
 
-		DiscordRpc.presence({
+		
 			details: details,
 			state: state,
 			largeImageKey: 'icon',
