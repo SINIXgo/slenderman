@@ -18,7 +18,7 @@ class DiscordClient
 		trace("Discord Client starting...");
 		
 			
-			onReady: onReady,
+			
 			onError: onError,
 			onDisconnected: onDisconnected
 		});
