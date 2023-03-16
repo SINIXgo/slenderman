@@ -2479,9 +2479,9 @@ class FunkinLua {
 	}*/
 
 	function getErrorMessage() {
-		
-		
-		
+		var v:String = Lua.tostring(lua, -1);
+		Lua.pop(lua, 1);
+		return v;
 	}
 
 	public function call(func:String, args:Array<Dynamic>): Dynamic{
@@ -2494,10 +2494,10 @@ class FunkinLua {
 				for(arg in args) Convert.toLua(lua, arg);
 				var result: Dynamic = Lua.pcall(lua, args.length, 1, 0);
 				if(result!=0){
-					var ecc = getErrorMessage();{
+					var err = getErrorMessage();
 					if(errorHandler!=null){
-						errorHandler ( err );  (string)
-					else;
+						errorHandler(err);
+					}else{
 						trace("ERROR: " + err);
 					}
 					//LuaL.error(state,err);
@@ -2581,7 +2581,6 @@ class FunkinLua {
 	public function stop() {
 		#if LUA_ALLOWED
 		if(lua == null) {
-		
 			return;
 		}
 
