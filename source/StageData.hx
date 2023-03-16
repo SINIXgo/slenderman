@@ -88,6 +88,6 @@ class StageData {
 		
 			
 		
-		return cast Json.parse(rawJson);
-	}
-}
+		
+	
+
