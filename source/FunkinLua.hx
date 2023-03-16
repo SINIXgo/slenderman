@@ -2496,7 +2496,7 @@ class FunkinLua {
 				if(result!=0){
 					var err = getErrorMessage();
 					if(errorHandler!=null){
-						errorHandler ( err );
+						errorHandler ( err );  (string)
 					}else{
 						trace("ERROR: " + err);
 					}
