@@ -19,7 +19,7 @@ class DiscordClient
 		
 			
 			
-			onError: onError,
+			
 			onDisconnected: onDisconnected
 		});
 		trace("Discord Client started.");
