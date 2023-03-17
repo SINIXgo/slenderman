@@ -270,10 +270,10 @@ class CrtTvShader extends FlxShader
         col = col*vec3( 0.4+0.7*s) ;
     
         col *= 1.0+0.01*sin(110.0*iTime);
-        if (uv.x < 0.0 || uv.x > 1.0)
-            col *= 0.0;
-        if (uv.y < 0.0 || uv.y > 1.0)
-            col *= 0.0;
+        if (uv.x < 0.0. || uv.x > 1.0.)
+            col *= vec2(0.0);
+        if (uv.y < 0.0. || uv.y > 1.0.)
+            col *= vec2(0.0);
         
         col*=1.0-0.65*vec3(clamp((mod(gl_FragCoord.x, 2.0)-1.0)*2.0,0.0,1.0));
         
